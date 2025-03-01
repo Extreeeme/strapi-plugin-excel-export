@@ -16,32 +16,35 @@ This plugin allows users to extract data easily from strapi backend into **.xlsx
 
 ## How to use
 
-1.  Create an **excel.js** file in the config folder. This file is used to provide tables and columns that need to be in the excel file
+1.  Add the config in the **plugins.js** file in the config folder. This file is used to provide tables and columns that need to be in the excel file
 
 ```
-module.exports = {
-  config: {
-    "api::contact-form.contact-form": {
-      columns: [
-        "first_name",
-        "last_name",
-        "phone_no",
-        "business_email",
-        "job_title",
-        "company_name",
-        "company_website",
-        "city",
-        "message",
-      ],
-      relation: {
-        solution: {
-          column: ["title"],
+module.exports = ({ env }) => ({
+  'export-excel': {
+    enabled: true,
+    config: {
+      "api::contact-form.contact-form": {
+        columns: [
+          "first_name",
+          "last_name",
+          "phone_no",
+          "business_email",
+          "job_title",
+          "company_name",
+          "company_website",
+          "city",
+          "message",
+        ],
+        relation: {
+          solution: {
+            column: ["title"],
+          },
         },
+        locale: "false",
       },
-      locale: "false",
     },
   },
-};
+});
 ```
 
 - The tables **uid** (api::contact-form.contact-form) need to be given following by its columns required
