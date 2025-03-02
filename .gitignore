@@ -95,13 +95,6 @@ public/uploads/*
 !public/uploads/.gitkeep
 
 
-############################
-# Build
-############################
-
-dist
-build
-
 
 ############################
 # Node.js
